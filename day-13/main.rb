@@ -10,7 +10,8 @@ class Fold_Paper
     @@max_y = 0
     @@max_x = 0
     def initialize()
-        File.foreach("input.txt").with_index do |line, line_num|
+        puts Dir.pwd
+        File.foreach(File.dirname(__FILE__) + "/input.txt").with_index do |line, line_num|
             unless line.scan(/\d/).empty? 
                 if line.include? "fold along"
                     @@fold_instructions.append(Array[(line.include? "x") ? "x" : "y", line.scan(/\d/).join("").to_i])
